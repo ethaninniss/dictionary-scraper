@@ -4,7 +4,6 @@ document.getElementById("sentence-button").onclick = function() {
     sentence = document.getElementById("sentence").value;
     console.log(sentence);
     splitSentence().forEach(e => wordFetch(e));
-    // wordFetch();
 };
 
 const splitSentence = () => {
@@ -16,7 +15,7 @@ const splitSentence = () => {
 
 
 
-async function wordFetch(word) { // https://api.dictionaryapi.dev/api/v2/entries/en/hello
+async function wordFetch(word) {
     let res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
     let data = await res.json();
     let todoData = await data;
