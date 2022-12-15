@@ -45,6 +45,13 @@ const makeCard = function(arr) {
     pronunciation.innerHTML = arr[0].phonetic;
     pronunciation.setAttribute("class", "pronunciation");
     card.appendChild(pronunciation);
+    // when clicked will play audio of pronunciation
+    pronunciation.addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log("this is clicking");
+        const audio = arr[0].phonetics[0].audio;
+        new Audio(audio).play();
+    });
 
     // definition
     let definition = document.createElement("p");
@@ -53,7 +60,7 @@ const makeCard = function(arr) {
     card.appendChild(definition);
     // when clicked will cycle through definitions
     let definitionClickCounter = 1;
-    card.addEventListener("click", (e) => {
+    definition.addEventListener("click", (e) => {
         e.preventDefault();
         console.log("this is clicking");
         definition.innerHTML = arr[0].meanings[0].definitions[definitionClickCounter].definition;
