@@ -9,6 +9,7 @@ document.getElementById("sentence-button").onclick = function() {
 const splitSentence = () => {
     const words = sentence.split(' ');
     const wordsWithoutPunctuation = words.map(word => word.replace(/\W/, ''));
+    console.log(wordsWithoutPunctuation);
     return wordsWithoutPunctuation;
 };
 
