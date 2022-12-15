@@ -32,7 +32,7 @@ const makeCard = function(arr) {
     let card = document.createElement("div");
     cardContainer.appendChild(card);
     card.setAttribute("class", "card");
-    // document.getElementsByClassName("card").border = "1px solid red";
+    card.style = "border: 1px solid red";
     
     // word
     let word = document.createElement("h3");
