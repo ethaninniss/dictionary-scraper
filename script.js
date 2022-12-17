@@ -65,7 +65,25 @@ const makeCard = function(arr) {
         e.preventDefault();
         console.log("this is clicking");
         definition.innerHTML = arr[0].meanings[0].definitions[definitionClickCounter].definition;
+        // definition.innerHTML = arr[0].meanings[partOfSpeechCounter].definitions[definitionClickCounter].definition;
         definitionClickCounter++;
         if (definitionClickCounter === arr[0].meanings[0].definitions.length) definitionClickCounter = 0;
+    });
+    
+    // part of speech
+    let partOfSpeech = document.createElement("p");
+    partOfSpeech.innerHTML = arr[0].meanings[0].partOfSpeech;
+    partOfSpeech.setAttribute("class", "part-of-speech");
+    card.appendChild(partOfSpeech);
+    // when clicked will cycle through part of speech
+    let partOfSpeechCounter = 1;
+    partOfSpeech.addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log("this is clicking");
+        // definitionClickCounter = 0;
+        partOfSpeech.innerHTML = arr[0].meanings[partOfSpeechCounter].partOfSpeech;
+        // definition.innerHTML = arr[0].meanings[partOfSpeechCounter].definitions[definitionClickCounter].definition;
+        partOfSpeechCounter++;
+        if (partOfSpeechCounter === arr[0].meanings.length) partOfSpeechCounter = 0;
     });
 };
